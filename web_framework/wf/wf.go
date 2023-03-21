@@ -61,11 +61,11 @@ func (engine *Engine) addRoute(method string, path string, handlers HandlersChai
 	n := root.search(parts, 0)
 	if n != nil {
 		//匹配 判断优先级是否重复
-		// eg:
+		// eg:?
 		// /h1/:name -> /h1/name yes
 		// /h1/:name -> /h1/*path yes
 		// /h1/:name -> /h1/:id no
-		// /h1/:name1/name2 -> /h1/name2/:name2 no
+		// /h1/:name1/name2 -> /h1/name2/:name2 no? TODO
 		parts := parsePath(path)       //插入
 		pathParts := parsePath(n.path) //已有
 		if len(pathParts) != len(parts) {
