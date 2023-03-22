@@ -17,11 +17,11 @@ type Codec interface {
 
 type CodecFunc func(io.ReadWriteCloser) Codec
 
-type Type = string
+type Type string
 
 const (
-	GobType Type = "application/gob"
-	// JsonType Type = "application/json"
+	GobType  Type = "application/gob"
+	JsonType Type = "application/json"
 )
 
 var CodecFuncMap map[Type]CodecFunc
@@ -29,4 +29,5 @@ var CodecFuncMap map[Type]CodecFunc
 func init() {
 	CodecFuncMap = make(map[Type]CodecFunc)
 	CodecFuncMap[GobType] = NewGobCodec
+	CodecFuncMap[JsonType] = NewJsonCodec
 }

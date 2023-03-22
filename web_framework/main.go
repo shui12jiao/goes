@@ -32,8 +32,8 @@ func FormatAsDate(t time.Time) string {
 
 func main() {
 	r := wf.New().Use(wf.Recovery())
-	r.GET("/", func(c *wf.Context) {
-		c.String(http.StatusOK, "<h1>Hello World</h1>", nil)
+	r.GET("/", func(ctx *wf.Context) {
+		ctx.String(http.StatusOK, FormatAsDate(time.Now()))
 	})
 	r.GET("/panic", func(ctx *wf.Context) {
 		names := []string{"wf"}

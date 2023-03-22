@@ -20,17 +20,13 @@ const (
 	DefaultDebugPath = "/debug/rpc"
 )
 
-const MagicNumber = 0x3bef5c
-
 type Option struct {
-	MagicNumber    int
 	CodecType      codec.Type
 	ConnectTimeout time.Duration
 	HandleTimeout  time.Duration
 }
 
 var DefaultOption = &Option{
-	MagicNumber:    MagicNumber,
 	CodecType:      codec.GobType,
 	ConnectTimeout: time.Second * 15,
 }
@@ -122,10 +118,6 @@ func (s *Server) ServeConn(conn io.ReadWriteCloser) {
 	var opt Option
 	if err := json.NewDecoder(conn).Decode(&opt); err != nil {
 		log.Println("rpc server: options error:", err)
-		return
-	}
-	if opt.MagicNumber != MagicNumber {
-		log.Printf("rpc server: invalid magic number %x", opt.MagicNumber)
 		return
 	}
 	f := codec.CodecFuncMap[opt.CodecType]

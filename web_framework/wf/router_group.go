@@ -26,7 +26,6 @@ func (group *RouterGroup) Use(middlewares ...HandlerFunc) *RouterGroup {
 }
 
 func (group *RouterGroup) GET(relativePath string, handler ...HandlerFunc) {
-
 	group.addRoute("GET", group.prefix+relativePath, handler)
 }
 
