@@ -123,19 +123,6 @@ func (g *Group) getFromPeer(peer PeerGetter, key string) (ByteView, error) {
 	return ByteView{b: bytes}, nil
 }
 
-// func (g *Group) getFromPeer(peer PeerGetter, key string) (ByteView, error) {
-// 	req := &pb.Request{
-// 		Group: g.name,
-// 		Key:   key,
-// 	}
-// 	res := &pb.Response{}
-// 	err := peer.Get(req, res)
-// 	if err != nil {
-// 		return ByteView{}, err
-// 	}
-// 	return ByteView{b: res.Value}, nil
-// }
-
 func (g *Group) populateCache(key string, val ByteView) {
 	g.mainCache.add(key, val)
 }

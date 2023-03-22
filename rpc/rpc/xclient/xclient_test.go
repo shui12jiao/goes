@@ -25,7 +25,7 @@ func (n *Num) Add(args *Args, reply *Reply) error {
 func startRegistry(t *testing.T) string {
 	t.Helper()
 	go http.ListenAndServe(":1234", DefaultRegistry)
-	return "http://localhost:1234/_geerpc_/registry"
+	return "http://localhost:1234/_rpc_/registry"
 }
 
 func startRPCServer(t *testing.T, registryAddr string) string {

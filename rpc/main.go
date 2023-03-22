@@ -74,7 +74,7 @@ func call(addr string, http bool) {
 
 func main() {
 	log.SetFlags(0)
-	httpUse := false
+	httpUse := true
 	addr := startServer(httpUse)
 	go call(addr, httpUse)
 	go call(addr, httpUse)

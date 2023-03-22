@@ -26,6 +26,7 @@ func TestMultiServerDiscoveryGet(t *testing.T) {
 	server, err := d.Get(RandomSelect)
 	require.NoError(t, err)
 	require.Contains(t, servers, server)
+	d.index = 0
 	server, err = d.Get(RoundRobinSelect)
 	require.NoError(t, err)
 	require.Equal(t, servers[0], server)

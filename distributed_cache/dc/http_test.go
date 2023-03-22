@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"testing"
+	"time"
 )
 
 func BenchmarkHTTP(b *testing.B) {
@@ -14,7 +15,7 @@ func BenchmarkHTTP(b *testing.B) {
 		w.Header().Set("Content-Type", "application/octet-stream")
 		w.Write(val.ByteSlice())
 	})))
-
+	time.Sleep(time.Millisecond * 100)
 	b.ResetTimer()
 
 	for i := 0; i < b.N; i++ {

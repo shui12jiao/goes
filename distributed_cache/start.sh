@@ -8,18 +8,18 @@ go build -o server
 
 sleep 2
 echo ">>> start test"
-curl "http://localhost:50500/api?key=Alice" &
-curl "http://localhost:50500/api?key=Bob" &
-curl "http://localhost:50500/api?key=Bob" &
-curl "http://localhost:50500/api?key=Bob" &
-curl "http://localhost:50500/api?key=Bob" &
-curl "http://localhost:50500/api?key=Bob" &
-curl "http://localhost:50500/api?key=Cindy" &
-curl "http://localhost:50500/api?key=David" &
-curl "http://localhost:50500/api?key=Eric" &
-curl "http://localhost:50500/api?key=Eric" &
-curl "http://localhost:50500/api?key=Eric" &
-curl "http://localhost:50500/api?key=Frank" &
+curl "http://localhost:50500/api?key=Alice" -w '\n' &
+curl "http://localhost:50500/api?key=Bob" -w '\n' &
+curl "http://localhost:50500/api?key=Bob" -w '\n' &
+curl "http://localhost:50500/api?key=Bob" -w '\n' &
+curl "http://localhost:50500/api?key=Bob" -w '\n' &
+curl "http://localhost:50500/api?key=Bob" -w '\n' &
+curl "http://localhost:50500/api?key=Cindy" -w '\n' &
+curl "http://localhost:50500/api?key=David" -w '\n' &
+curl "http://localhost:50500/api?key=Eric" -w '\n' &
+curl "http://localhost:50500/api?key=Eric" -w '\n' &
+curl "http://localhost:50500/api?key=Eric" -w '\n' &
+curl "http://localhost:50500/api?key=Frank" -w '\n' &
 
 
 wait
